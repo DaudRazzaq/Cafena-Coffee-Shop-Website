@@ -25,15 +25,15 @@ A modern, responsive coffee shop website design built with HTML, CSS, and JavaSc
 
 **🛠 Technologies Used**
 
-HTML5
+ > HTML5
 
-CSS3
+ > CSS3
 
-JavaScript (Vanilla JS)
+ > JavaScript (Vanilla JS)
 
-FontAwesome Icons
+ > FontAwesome Icons
 
-Google Maps API
+ > Google Maps API
 
 
 
