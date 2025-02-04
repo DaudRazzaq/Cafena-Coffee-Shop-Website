@@ -2,7 +2,7 @@
 
 A modern, responsive coffee shop website design built with HTML, CSS, and JavaScript.
 
-![Project Screenshot](Cafena-Coffee-Shop-Website-Code/images/Cafena.png)
+![Project Screenshot](Cafena.png)
 
 ## 🚀 Features
 - 🍵 **Responsive Design** – Fully functional across all devices.
