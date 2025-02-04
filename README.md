@@ -2,17 +2,17 @@
 
 A modern, responsive coffee shop website design built with HTML, CSS, and JavaScript.
 
-**Main Page:**
+-->**Main Page:**
 
 ![Project Screenshot](Cafena.png)
 
 
-**Error Prevention**
+-->**Error Prevention**
 
 ![Project Screenshot](Error.png)
 
 
-**Match Between System & Real World**
+-->**Match Between System & Real World**
 
 ![Project Screenshot](RealWorld.png)
 
