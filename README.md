@@ -1,2 +1,14 @@
-# Coffee-Shop-Website-Design
- A responsive website built with React, HTML, CSS, and JavaScript, designed for usability, consistency, and flexibility. It features adaptive design for various devices, error prevention mechanisms, and a cohesive layout. Includes full source code and detailed documentation, showcasing best practices in web design and development.
+# ☕ Cafena Coffee Shop Website
+
+A modern, responsive coffee shop website design built with HTML, CSS, and JavaScript.
+
+![Project Screenshot](images/screenshot.png)
+
+## 🚀 Features
+- 🍵 **Responsive Design** – Fully functional across all devices.
+- 🛒 **E-Commerce Ready** – Shopping cart functionality.
+- ⭐ **User Reviews** – Integrated customer feedback section.
+- 📖 **Blog Section** – Updates and articles about coffee.
+- 🗺️ **Google Maps Integration** – Find our shop easily.
+
+## 📂 Project Structure
