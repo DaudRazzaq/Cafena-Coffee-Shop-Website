@@ -4,7 +4,7 @@ A modern, responsive coffee shop website design built with HTML, CSS, and JavaSc
 
 -->**Main Page:**
 
-![Project Screenshot](Cafena.png)
+![Project Screenshot](/images/Cafena.png)
 
 
 -->**Error Prevention**
