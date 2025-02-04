@@ -9,12 +9,12 @@ A modern, responsive coffee shop website design built with HTML, CSS, and JavaSc
 
 -->**Error Prevention**
 
-![Project Screenshot](Error.png)
+![Project Screenshot](/images/Error.png)
 
 
 -->**Match Between System & Real World**
 
-![Project Screenshot](RealWorld.png)
+![Project Screenshot](/images/RealWorld.png)
 
 **## 🚀 Features**
 - 🍵 **Responsive Design** – Fully functional across all devices.
