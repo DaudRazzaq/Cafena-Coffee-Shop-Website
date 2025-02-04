@@ -24,15 +24,22 @@ A modern, responsive coffee shop website design built with HTML, CSS, and JavaSc
 - 🗺️ **Google Maps Integration** – Find our shop easily.
 
 **🛠 Technologies Used**
+
 HTML5
+
 CSS3
+
 JavaScript (Vanilla JS)
+
 FontAwesome Icons
+
 Google Maps API
+
 
 
 **📬 Contact**
 For any queries, reach out to:
+
 📧 Email: daudrazzaq7890@gmail.com.com
 
 🌐 Website: https://daud-portfolio-gu4y.vercel.app/
