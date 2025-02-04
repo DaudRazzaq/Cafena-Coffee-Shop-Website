@@ -40,6 +40,6 @@ A modern, responsive coffee shop website design built with HTML, CSS, and JavaSc
 **📬 Contact**
 For any queries, reach out to:
 
-📧 Email: daudrazzaq7890@gmail.com.com
+📧 Email: daudrazzaq7890@gmail.com
 
 🌐 Website: https://daud-portfolio-gu4y.vercel.app/
