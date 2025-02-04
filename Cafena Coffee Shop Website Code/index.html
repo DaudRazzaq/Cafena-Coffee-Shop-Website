@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Shop Website Design</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />            
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+<!-- header section starts  -->
+<header class="header">
+    <a href="#" class="logo">
+        <img src="images/logo.png" alt="Coffee Shop Logo">
+    </a>
+
+    <nav class="navbar">
+        <a href="#home"><i class='fa fa-home'></i> Home</a>
+        <a href="#about"><i class='fa fa-info'></i> About</a>
+        <a href="#menu"><i class='fa-solid fa-list-check'></i> Menu</a>
+        <a href="#products"><i class='fa fa-address-book'></i> Products</a>
+        <a href="#review"><i class='fa fa-comments'></i> Reviews</a>
+        <a href="#contact"><i class='fa fa-phone'></i> Contact</a>
+        <a href="#blogs"><i class='fa fa-list-alt'></i> Blogs</a>
+    </nav>
+
+    <div class="icons">
+        <div class="fas fa-search" id="search-btn"></div>
+        <div class="fas fa-shopping-cart" id="cart-btn">
+            <span id="cart-count">0</span> <!-- Cart count -->
+        </div>
+        <div class="fas fa-bars" id="menu-btn"></div>
+    </div>
+
+    <div class="search-form">
+        <input type="search" id="search-box" placeholder="Search here...">
+        <label for="search-box" class="fas fa-search" id="search-btn"></label>
+    </div>
+    <div id="search-results" style="display: none;"></div>
+    
+    <div class="cart-items-container">
+        <!-- Cart items will be dynamically added here -->
+        <ul id="cart-items">
+            <!-- Cart items will appear here dynamically -->
+        </ul>
+        <a href="#" class="btn" id="checkout-button">Checkout Now</a>
+        <a href="#" id="clear-cart-button" class="btn">Clear Cart</a>
+
+        <div id="checkout-message" class="checkout-message" style="margin-top: 10px;"></div>        <div id="undo-container" style="display: none;">
+            <button class="btn undo-btn" onclick="undoLastAction()">Undo</button>
+        </div>
+
+    </div>
+
+</header>
+
+<!-- header section ends -->
+
+<!-- Toast Notification -->
+<div id="toast" style="display:none; position:fixed; font-size: 25px;bottom:20px; right:20px; background-color: #333; color: #fff; padding: 10px; border-radius: 5px;">
+    Item added to cart!
+</div>
+
+<!-- home section starts  -->
+<section class="home" id="home">
+    <div class="content">
+        <h3> Brew Your Perfect Start!</h3>
+        <p>Wake up to the irresistible aroma of freshly brewed coffee made with the finest beans. Whether you prefer a bold espresso or a creamy latte, our coffee is crafted to perfection, ensuring you get the best start to your day</p>
+        <a href="#" class="btn" onclick="scrollToMenu()">Get Yours Now</a>
+
+<script>
+    function scrollToMenu() {
+        document.getElementById('menu').scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
+    </div>
+</section>
+
+<!-- home section ends -->
+
+<!-- about section starts  -->
+
+<section class="about" id="about">
+    <h1 class="heading"> <span>About</span> Us </h1>
+    <div class="row">
+        <div class="image">
+            <img src="images/about-img.jpeg" alt="About Us Image">
+        </div>
+        <div class="content">
+            <h3>What Makes Our Coffee Special?</h3>
+            <p>Our coffee is special because we prioritize quality and freshness in every cup. We source premium beans from the world’s best coffee-growing regions, ensuring rich and bold flavors.</p>
+            <p>To preserve the full taste, we grind our beans just before brewing, offering a fresh experience with each sip. Each cup is expertly crafted by our skilled baristas, who tailor the brew to your taste.</p>
+            <p>We also take pride in our sustainable and ethical practices, supporting fair trade and environmentally friendly farming. Whether you’re enjoying a classic favorite or a seasonal specialty, our coffee is made with care, passion, and the finest ingredients. </p>
+            <a href="about.html" class="btn" onclick="window.location.href='about.html'; return false;">Learn More</a>
+        </div>
+    </div>
+</section>
+
+<!-- about section ends -->
+
+<!-- menu section starts  -->
+
+<section class="menu" id="menu">
+    <h1 class="heading"> Our <span>Menu</span> </h1>
+
+    <div class="box-container">
+        <div class="box" id="choco-luxe-mocha">
+            <img src="images/menu-1.png" alt="Choco Luxe Mocha">
+            <h3>Choco Luxe Mocha</h3>
+            <div class="price">$9 <span>$11.99</span></div>
+            <a href="#" class="btn" onclick="addItemToCart('Choco Luxe Mocha', 9)">Add to Cart</a>
+        </div>
+    
+        <div class="box" id="rustic-americano">
+            <img src="images/menu-2.png" alt="Rustic Americano">
+            <h3>Rustic Americano</h3>
+            <div class="price">$7.99 <span>$10.99</span></div>
+            <a href="#" class="btn" onclick="addItemToCart('Rustic Americano', 7.99)">Add to Cart</a>
+        </div>
+    
+        <div class="box" id="midnight-cold-brew">
+            <img src="images/menu-3.png" alt="Midnight Cold Brew">
+            <h3>Midnight Cold Brew</h3>
+            <div class="price">$10.99 <span>$14.99</span></div>
+            <a href="#" class="btn" onclick="addItemToCart('Midnight Cold Brew', 10.99)">Add to Cart</a>
+        </div>
+    
+        <div class="box" id="cloudy-latte">
+            <img src="images/menu-4.png" alt="Cloudy Latte">
+            <h3>Cloudy Latte</h3>
+            <div class="price">$12.99 <span>$16.99</span></div>
+            <a href="#" class="btn" onclick="addItemToCart('Cloudy Latte', 12.99)">Add to Cart</a>
+        </div>
+    
+        <div class="box" id="young-espresso">
+            <img src="images/menu-5.png" alt="Young Espresso">
+            <h3>Young Espresso</h3>
+            <div class="price">$15.99 <span>$18.99</span></div>
+            <a href="#" class="btn" onclick="addItemToCart('Young Espresso', 15.99)">Add to Cart</a>
+        </div>
+    
+        <div class="box" id="velvet-cappuccino">
+            <img src="images/menu-6.png" alt="Velvet Cappuccino">
+            <h3>Velvet Cappuccino</h3>
+            <div class="price">$9.99 <span>$10.99</span></div>
+            <a href="#" class="btn" onclick="addItemToCart('Velvet Cappuccino', 9.99)">Add to Cart</a>
+        </div>
+    
+    </div>
+
+    <!-- Cart Display in the Header -->
+    <div id="cart-container">
+        <h3>Cart:</h3>
+        <ul id="cart-items">
+            <!-- Cart items will appear here -->
+        </ul>
+        <div>Total: $<span id="totalPrice">0</span></div>
+    </div>
+</section>
+
+
+
+<!-- menu section ends -->
+<section class="products" id="products">
+    <h1 class="heading"> Our <span>Products</span> </h1>
+    <div class="box-container">
+        <div class="box">
+            <div class="icons">
+                <a href="#" class="fas fa-shopping-cart"></a>
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-eye"></a>
+            </div>
+            <div class="image">
+                <img src="images/product-1.png" alt="Product 1">
+            </div>
+            <div class="content">
+                <h3>Pack Of Coffee Beans and Grounds</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="price">$15.99 <span>$20.99</span></div>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="icons">
+                <a href="#" class="fas fa-shopping-cart"></a>
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-eye"></a>
+            </div>
+            <div class="image">
+                <img src="images/product-2.png" alt="Product 2">
+            </div>
+            <div class="content">
+                <h3>Fresh Columbian Beans</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="price">$17.99 <span>$20.99</span></div>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="icons">
+                <a href="#" class="fas fa-shopping-cart"></a>
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-eye"></a>
+            </div>
+            <div class="image">
+                <img src="images/product-3.png" alt="Product 3">
+            </div>
+            <div class="content">
+                <h3>Peru Fresh Beans</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="price">$10.99 <span>$18.99</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- products section ends -->
+
+
+<!-- review section starts  -->
+<!-- review section starts  -->
+<section class="review" id="review">
+    <h1 class="heading"> Customer's <span>Review</span> </h1>
+    <div class="box-container">
+        <div class="box">
+            <img src="images/pic-1.png" alt="Customer 1">
+            <p>Give yourself a favor and get their coffee, Its amazing!.</p>
+            <h3>John Doe</h3>
+            <span>Happy Customer</span>
+        </div>
+
+        <div class="box">
+            <img src="images/pic-2.png" alt="Customer 2">
+            <p>Loved every single sip of Velvet Cappuccino!</p>
+            <h3>Jane Smith</h3>
+            <span>Happy Customer</span>
+        </div>
+
+        <div class="box">
+            <img src="images/pic-3.png" alt="Customer 3">
+            <p>Young Espresso has been my all time fav!.</p>
+            <h3>Mike Johnson</h3>
+            <span>Happy Customer</span>
+        </div>
+    </div>
+</section>
+<!-- review section ends -->
+
+<!-- contact section starts -->
+<section class="contact" id="contact">
+    <h1 class="heading"> Contact <span>Us</span> </h1>
+    <div class="row">
+        <div class="info">
+            <h3>Get in Touch</h3>
+            
+            <div class="box">
+                <i class="fas fa-phone"></i>
+                <h3>Phone</h3>
+                <p>+92-0000000000</p>
+            </div>
+            <div class="box">
+                <i class="fas fa-envelope"></i>
+                <h3>Email</h3>
+                <p>Cafenaofficial@gmail.com</p>
+            </div>
+            <div class="box">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Address</h3>
+                <p>123 Coffee St, City, Country</p>
+            </div>
+        </div>
+
+        <form id="contactForm" action="">
+            <h3>Message Us</h3>
+            <input type="text" placeholder="Your Name" class="box" required>
+            <input type="email" placeholder="Your Email" class="box" required>
+            <textarea placeholder="Your Message" class="box" required></textarea>
+            <input type="submit" value="Send Message" class="btn">
+            <!-- Placeholder for confirmation message -->
+        <p id="confirmationMessage" style="display: none;"></p>
+        </form>
+        
+</section>
+<!-- contact section ends -->
+
+<!-- blogs section starts  -->
+
+<section class="blogs" id="blogs">
+
+    <h1 class="heading"> our <span>blogs</span> </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <div class="image">
+                <img src="images/blog-1.jpeg" alt="error-message">
+            </div>
+            <div class="content">
+                <a href="#" class="title">"The Art of Coffee: How to Brew the Perfect Cup at Home"</a>
+                <span>by admin / 21st may, 2024</span>
+                <p>Brewing coffee at home doesn’t have to be intimidating. With the right tools and techniques, you can create a café-quality cup in your own kitchen. In this guide, we’ll walk you through the essentials, from selecting the perfect beans to mastering brewing methods like pour-over and French press.</p>
+                <a href="#" class="btn">read more</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="image">
+                <img src="images/blog-2.jpeg" alt="error-message">
+            </div>
+            <div class="content">
+                <a href="#" class="title">"From Bean to Cup: The Journey of Your Morning Coffee"</a>
+                <span>by admin / 10 june, 2024</span>
+                <p>Have you ever wondered about the incredible journey your coffee makes before reaching your cup? It all starts in lush coffee farms across the globe, where every bean is cultivated with care. This blog takes you behind the scenes to explore the growing, harvesting, and roasting processes that shape the flavor of your favorite coffee.</p>
+                <a href="#" class="btn">read more</a>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="image">
+                <img src="images/blog-3.jpeg" alt="error-message">
+            </div>
+            <div class="content">
+                <a href="#" class="title">"5 Reasons Why Coffee Lovers Are Choosing Sustainable Brews"</a>
+                <span>by admin / 21st Aug, 2024</span>
+                <p>From supporting small farmers to reducing your environmental footprint, choosing sustainable brews is a win for everyone – especially the planet. Find out how your daily coffee habit can make a big difference.</p>
+                <a href="#" class="btn">read more</a>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- blogs section ends -->
+
+<!-- footer section starts  -->
+
+<section class="footer">
+
+    <div class="share">
+        <a href="#" class="fab fa-facebook-f"></a>
+        <a href="#" class="fab fa-twitter"></a>
+        <a href="#" class="fab fa-instagram"></a>
+        <a href="#" class="fab fa-linkedin"></a>
+        <a href="#" class="fab fa-pinterest"></a>
+    </div>
+
+    <div class="links">
+        <a href="#">home</a>
+        <a href="#">about</a>
+        <a href="#">menu</a>
+        <a href="#">products</a>
+        <a href="#">review</a>
+        <a href="#">contact</a>
+        <a href="#">blogs</a>
+    </div>
+
+        <div class="credit"> Created by <span>Daud Razzaq</span> | All rights reserved! </div>
+    </footer>
+    <!-- footer section ends -->
+    
+    <script src="js/script.js"></script>
+</body>
+    </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="js/script.js"></script>
+    <script>
+       // Initialize an empty cart if no data exists in localStorage
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+let totalPrice = parseFloat(localStorage.getItem('totalPrice')) || 0;
+
+// Variable to store the last added item
+let lastAddedItem = null; 
+
+// Function to add item to the cart
+function addItemToCart(itemName, itemPrice) {
+    var userConfirmed = window.confirm('Do you wish to add this item to the cart?');
+
+    if (userConfirmed) {
+        // Add the item to the cart array
+        cart.push({ name: itemName, price: itemPrice });
+        totalPrice += itemPrice; // Add the price to the total price
+
+        // Store the last added item
+        lastAddedItem = { name: itemName, price: itemPrice };
+
+        // Save updated cart and totalPrice in localStorage
+        localStorage.setItem('cart', JSON.stringify(cart));
+        localStorage.setItem('totalPrice', totalPrice);
+
+        // Update the cart display
+        updateCartDisplay();
+
+        // Show toast notification
+        showToast('Item added to cart!');
+
+        // Show Undo option
+        showUndoOption();
+    } else {
+        console.log('Item not added to cart.');
+    }
+}
+
+function undoLastAction() {
+    if (lastAddedItem) {
+        // Remove the last added item from the cart
+        cart.pop(); // Remove the last item
+        totalPrice -= lastAddedItem.price; // Subtract the price from total
+
+        // Clear the last added item
+        lastAddedItem = null;
+
+        // Update localStorage
+        localStorage.setItem('cart', JSON.stringify(cart));
+        localStorage.setItem('totalPrice', totalPrice);
+
+        // Update the cart display
+        updateCartDisplay();
+
+        alert('Last action undone.');
+    }
+}
+
+function showUndoOption() {
+    const undoContainer = document.getElementById('undo-container');
+    undoContainer.style.display = 'block';
+
+    // Hide the undo option after a few seconds
+    setTimeout(() => {
+        undoContainer.style.display = 'none';
+    }, 5000); // Show for 5 seconds
+}
+
+// Function to update the cart display in the header
+function updateCartDisplay() {
+    let cartItemsList = document.getElementById('cart-items');
+    let totalPriceElement = document.getElementById('totalPrice');
+    let cartCountElement = document.getElementById('cart-count'); // Get the cart count element
+    
+    // Clear previous items
+    cartItemsList.innerHTML = '';
+
+    // Add each item in the cart to the display
+    cart.forEach(item => {
+        let listItem = document.createElement('li');
+        listItem.textContent = `${item.name} - $${item.price}`;
+        cartItemsList.appendChild(listItem);
+    });
+
+    // Update the total price
+    totalPriceElement.textContent = totalPrice.toFixed(2);
+
+    // Update the cart count
+    cartCountElement.textContent = cart.length; // Update the cart count
+}
+
+// Function to show toast notification
+function showToast(message) {
+    const toast = document.getElementById('toast');
+    toast.textContent = message; // Set dynamic message
+    toast.style.display = 'block';
+
+    // Hide toast after 3 seconds
+    setTimeout(() => {
+        toast.style.display = 'none';
+    }, 3000);
+}
+
+// Function to handle Checkout button click
+function handleCheckout() {
+    if (cart.length === 0) {
+        alert('Your cart is empty. Please add items to the cart.');
+    } else {
+        // Calculate total price for checkout
+        let checkoutTotal = cart.reduce((sum, item) => sum + item.price, 0);
+        
+        // Update the cart display with checkout information
+        const checkoutMessage = `Your total is: $${checkoutTotal.toFixed(2)}`;
+        document.getElementById('checkout-message').textContent = checkoutMessage;
+
+console.log('Checkout total:', checkoutTotal.toFixed(2));
+}
+}
+
+// Function to clear the cart
+function clearCart() {
+// Empty the cart array and reset total price
+cart = [];
+totalPrice = 0;
+
+// Update localStorage
+localStorage.setItem('cart', JSON.stringify(cart));
+localStorage.setItem('totalPrice', totalPrice);
+
+// Update the UI
+updateCartDisplay();
+resetCheckout(); // Reset the checkout message
+alert('Your cart has been cleared.');
+}
+
+// Function to reset the checkout message
+function resetCheckout() {
+document.getElementById('checkout-message').textContent = 'Your total is: $0.00'; // Reset the checkout message
+}
+
+// Call updateCartDisplay on page load to show cart items from localStorage
+window.onload = updateCartDisplay;
+
+// Bind the checkout function to the button
+document.getElementById('checkout-button').addEventListener('click', handleCheckout);
+
+// Bind the clear cart functionality to the clear cart button
+document.getElementById('clear-cart-button').addEventListener('click', clearCart);
+        
+        </script>
+        
+<script>
+    function validateEmail() {
+      var emailInput = document.getElementById("signupemail");
+      var emailValue = emailInput.value.trim();
+      var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (emailPattern.test(emailValue)) {
+        emailInput.classList.remove("error");
+        emailInput.classList.add("success");
+        document.getElementById("email-error").textContent = "";
+      } else {
+        emailInput.classList.remove("success");
+        emailInput.classList.add("error");
+        document.getElementById("email-error").textContent = "Invalid email format.";
+      }
+    }
+
+    function validatePhone() {
+        var phoneInput = document.getElementById("phone");
+        var phoneValue = phoneInput.value.trim();
+        var phonePattern = /^03\d{9}$/; // Regular expression for Pakistani phone number pattern
+
+        if (phonePattern.test(phoneValue)) {
+            phoneInput.classList.remove("error");
+            document.getElementById("phone-error").textContent = "";
+        } else {
+            phoneInput.classList.add("error");
+            document.getElementById("phone-error").textContent = "Invalid phone number format (11 digits required, starting with '03').";
+        }
+    }</script>
+
+
+</body>
+</html>
